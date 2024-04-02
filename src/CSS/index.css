@@ -1,0 +1,118 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+header{
+    background-color: black;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header img{
+    width: 30px;
+}
+
+header h2{
+    margin-top: 4vh;
+    color: #56CD42;
+    align-self: center;
+}
+
+header input{
+    align-self: center;
+    width: 60vw;
+    height: 2vh;
+    background-color: black;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-bottom: 7px;
+    border: 1px solid white;
+}
+
+header input::placeholder{
+    color: #56CD42;
+    font-size: 7px;
+}
+
+main{
+    background-image: url("/src/img/FUNDO_3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 65vh;
+}
+
+footer{
+    background-color: #105718;
+    height: 15vh;
+    font-size: xx-small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer p{
+    color: #56CD42;
+}
+
+footer span{
+    color: white;
+}
+
+.info{
+    padding-top: 30px;
+    color: #50C43F;
+    font-size: 6px;
+    display: flex;
+}
+
+.info-dev{
+    font-size: 6px;
+}
+
+.focus-card{
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile{
+    height: 13vh;
+    width: 80%;
+    background-color: #354338;
+    border-radius: 5px;
+    display: flex;
+}
+
+.image-profile img{
+    height: 13vh;   
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.color-w{
+    color: white;
+}
+
+.font-s{
+    font-size: 9px;
+}
+
+.color-g{
+    color: #777978;
+}
+
+.scrol{
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.container-h{
+    height: 410px;
+    overflow: hidden;
+    overflow: scroll;
+}
