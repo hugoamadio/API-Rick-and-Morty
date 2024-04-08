@@ -9,104 +9,49 @@
     <link rel="stylesheet" href="/src/CSS/index.css">
 </head>
 <body>
-    <header>
-        <img src="/src/img/RICK_MORTY_ICON.png" alt="Logotipo rick and morty">
-        <h2>API de Rick and Morty</h2>
-        <input type="text" placeholder="Pesquisar">
+    <header class="d-flex flex-column bg-black custom-h20">
+        <img class="custom-w7" src="/src/img/RICK_MORTY_ICON.png" alt="Logotipo rick and morty">
+        <h2 class="mt-4 color-green align-self-center">API de Rick and Morty</h2>
+        <input class="bg-black rounded align-self-center custom-w60 custom-h2 ps-2 pb-2 border border-white" type="text" placeholder="Pesquisar">
     </header>
-    <main>
+    <main class="custom-h65">
         <div class="container-fluid container-h">
             <div class="row mb-3">
-                <div class="col-12 focus-card">
-                    <section class="profile">
+                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center custom-h13">
+                    <section class="profile bg-color-custom-green custom-w80 d-flex rounded custom-h13">
                         <div class="image-profile">
-                            <img src="/src/img/img-teste.png" alt="">
+                            <img class="custom-h13" src="/src/img/img-teste.png" alt="">
                         </div>
                         <div class="info-profile p-2">
                             <h6 class="color-w m-0">Titulo do card</h6>
                             <!-- AQUI VAI A BOLINHA VERDE OU VERMELHA--> <p class="font-s color-w mb-2">Vivo - Humano</p>
 
-                            <p class="font-s mb-0 color-g">Última localização conhecida</p>
+                            <p class="font-s mb-0 color-gray">Última localização conhecida</p>
                             <p class="color-w font-s mb-2">planeta XPTO</p>
 
-                            <p class="font-s m-0 color-g">Visto a última vez em:</p>
+                            <p class="font-s m-0 color-gray">Visto a última vez em:</p>
                             <p class="color-w font-s">nome do capitulo</p>
                         </div>
                     </section>
                 </div>
             </div>
+
             
-            <div class="row mb-3">
-                <div class="col-12 focus-card">
-                    <section class="profile">
-                        <div class="image-profile">
-                            <img src="/src/img/img-teste.png" alt="">
-                        </div>
-                        <div class="info-profile p-2">
-                            <h6 class="color-w m-0">Titulo do card</h6>
-                            <!-- AQUI VAI A BOLINHA VERDE OU VERMELHA--> <p class="font-s color-w mb-2">Vivo - Humano</p>
-
-                            <p class="font-s mb-0 color-g">Última localização conhecida</p>
-                            <p class="color-w font-s mb-2">planeta XPTO</p>
-
-                            <p class="font-s m-0 color-g">Visto a última vez em:</p>
-                            <p class="color-w font-s">nome do capitulo</p>
-                        </div>
-                    </section>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12 focus-card">
-                    <section class="profile">
-                        <div class="image-profile">
-                            <img src="/src/img/img-teste.png" alt="">
-                        </div>
-                        <div class="info-profile p-2">
-                            <h6 class="color-w m-0">Titulo do card</h6>
-                            <!-- AQUI VAI A BOLINHA VERDE OU VERMELHA--> <p class="font-s color-w mb-2">Vivo - Humano</p>
-
-                            <p class="font-s mb-0 color-g">Última localização conhecida</p>
-                            <p class="color-w font-s mb-2">planeta XPTO</p>
-
-                            <p class="font-s m-0 color-g">Visto a última vez em:</p>
-                            <p class="color-w font-s">nome do capitulo</p>
-                        </div>
-                    </section>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12 focus-card">
-                    <section class="profile">
-                        <div class="image-profile">
-                            <img src="/src/img/img-teste.png" alt="">
-                        </div>
-                        <div class="info-profile p-2">
-                            <h6 class="color-w m-0">Titulo do card</h6>
-                            <!-- AQUI VAI A BOLINHA VERDE OU VERMELHA--> <p class="font-s color-w mb-2">Vivo - Humano</p>
-
-                            <p class="font-s mb-0 color-g">Última localização conhecida</p>
-                            <p class="color-w font-s mb-2">planeta XPTO</p>
-
-                            <p class="font-s m-0 color-g">Visto a última vez em:</p>
-                            <p class="color-w font-s">nome do capitulo</p>
-                        </div>
-                    </section>
-                </div>
-            </div>
         </div>
     </main>
-    <footer>
-        <div class="info">
+    <footer class="d-flex flex-column align-items-center bg-dark-green custom-h15">
+        <div class="info fs-custom7 pt-3 d-flex color-green">
             <p>PERSONAGENS: <span>XX</span></p>
             <p>PERSONAGENS: <span>XX</span></p>
             <p>PERSONAGENS: <span>XX</span></p>
         </div>
-        <div class="info-dev">
+        <div class="info-dev fs-custom6">
             <p>Desenvolvido por: <span>Hugo Amadio</span> em 2024</p>
         </div>
     </footer>
 </body>
 <script src="/src/Bootstrap 5.3.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/src/JS/api.js"></script>
+<script src="/src/JS/index.js"></script>
 </html>
