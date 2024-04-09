@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search)
 let limit = parseInt(urlParams.get("limit")) || 6
 let page = parseInt(urlParams.get("page")) || 0
-let character = []
+var character = []
 let characterCards = document.getElementById('characterCards')
 let divBtnNav = document.getElementById('btn-nav')
 let btnNext = document.getElementById('proxima')
@@ -41,19 +41,33 @@ api.get('/episode')
   })
 
 
-
-//Pegar informações dos personagems e paginar
-const getCharacter = async (character, page, limit) => {
+//Pegar characters
+const getCharacterAPI = async () => {
   await api.get('/character')
     .then(function (response) {
-      character = response.data.results
-      let characterPaginado = character
-      let offset = page * limit
-      if (character.length >= offset) {
-        characterPaginado = characterPaginado.slice(offset, (offset + limit))
+      character = response.data.results.slice()
+      console.log(response.data.results)
+    })
+    .catch(error => {
+      console.error(error)
+    })
+}
 
-        characterPaginado.forEach(async (personagem) => {
-          const novaDiv = document.createElement("div")
+//Paginar characters
+const pageCharacters = (page, limit) => {
+  let characterPaginado = character.slice()
+  let offset = page * limit
+  if(character.length >= offset){
+    characterPaginado = characterPaginado.slice(offset, (offset+limit))
+    return characterPaginado
+  }
+}
+
+
+//Exibir na tela
+const impressCharactes = (characterPaginado) => {
+  characterPaginado.forEach(personagem => {
+    const novaDiv = document.createElement("div")
           novaDiv.innerHTML = `
                                               <div id="cardPersonagem" class="row mb-3">
                                                     <div class="col-12 col-md-6 d-flex align-items-center justify-content-center custom-h13">
@@ -69,27 +83,22 @@ const getCharacter = async (character, page, limit) => {
                                                                 <p class="color-w font-s mb-2">${personagem.location.name}</p>
 
                                                                 <p class="font-s m-0 color-gray">Visto a última vez em:</p>
-                                                                <p class="color-w font-s" id="episode-name"></p>
+                                                                <p class="color-w font-s" id="episode-name">Episódio ${personagem.episode.length}</p>
                                                             </div>
                                                         </section>
                                                     </div>
                                                 </div>
-        ` 
+        `
           characterCards.appendChild(novaDiv)
-          
-        });
-      }
-    })
-    .catch(function (error) {
-      console.error(error);
-    })
+
+  });
 }
 
 //Botões de navegação das paginas
 btnNext.addEventListener('click', function (event) {
   page++
   characterCards.innerHTML = ""
-  getCharacter(character, page, limit)
+  impressCharactes(pageCharacters(page, limit))
 
   if (page > 0) {
     btnLast.disabled = false
@@ -99,7 +108,7 @@ btnNext.addEventListener('click', function (event) {
 btnLast.addEventListener('click', function (event) {
   page--
   characterCards.innerHTML = ""
-  getCharacter(character, page, limit)
+  impressCharactes(pageCharacters(page, limit))
 
   if (page <= 0) {
     btnLast.disabled = true
@@ -108,4 +117,10 @@ btnLast.addEventListener('click', function (event) {
 
 
 //chamada de funções
-getCharacter(character, page, limit)
+getCharacterAPI()
+  .then(()=>{
+    impressCharactes(pageCharacters(page, limit))
+  })
+  .catch(error => {
+    console.error(error)
+  })
