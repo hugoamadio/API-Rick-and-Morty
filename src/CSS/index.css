@@ -100,6 +100,21 @@ footer span {
 
 .container-h {
     height: 410px;
+    overflow: hidden;
+    overflow: scroll;
+}
+
+#cardPersonagem:hover{
+    animation: hoverCard 0.5s forwards;
+}
+
+@keyframes hoverCard {
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 1.05;
+    }
 }
 
 @media (min-width: 1500px) {
