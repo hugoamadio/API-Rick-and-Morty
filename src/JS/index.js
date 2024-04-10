@@ -4,6 +4,7 @@ let page = parseInt(urlParams.get("page")) || 1
 
 var character = []
 
+let searchInput = document.getElementById('search-input')
 let characterCards = document.getElementById('characterCards')
 let btnNext = document.getElementById('proxima')
 let btnLast = document.getElementById('anterior')
@@ -79,8 +80,8 @@ const pageCharacters = (page, limit) => {
 const impressCharactes = (character) => {
   character.forEach(personagem => {
     const novaDiv = document.createElement("div")
-    novaDiv.innerHTML =      
-                              `
+    novaDiv.innerHTML =
+      `
                               <div id="cardPersonagem" class="card-personagem row mb-3">
                                 <div class="col-12 col-md-6 d-flex align-items-center justify-content-center custom-h13">
                                   <section class="profile bg-color-custom-green custom-w80 d-flex rounded custom-h13">
@@ -102,6 +103,26 @@ const impressCharactes = (character) => {
     characterCards.appendChild(novaDiv)
   })
 }
+
+const getCharacterSearch = async (input) =>{
+  await api.get(`/character/?name=${input}`)
+  .then(function(response){
+    character = response.data.results
+    characterCards.innerHTML = ""
+    impressCharactes(character)
+  })
+  .catch(error=>{
+    characterCards.innerHTML = ""
+    characterCards.innerHTML = `<div class="d-flex justify-content-center align-items-center">
+    <p class="text color-green" font-size: 24px;">Personagem não encontrado</p>
+  </div>`
+  })
+}
+
+searchInput.addEventListener('input', function (event) {
+  getCharacterSearch(searchInput.value.toLowerCase())
+})
+
 
 btnNext.addEventListener('click', function (event) {
   page++
