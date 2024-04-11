@@ -109,6 +109,11 @@ footer span {
     animation: hoverCard 0.5s forwards;
 }
 
+.modal-content{
+    color: #43B4C9;
+    background-color: #354338;
+}
+
 @keyframes hoverCard {
     0%{
         scale: 1;
