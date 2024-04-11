@@ -2,7 +2,10 @@ const urlParams = new URLSearchParams(window.location.search)
 let limit = parseInt(urlParams.get("limit")) || 6
 let page = parseInt(urlParams.get("page")) || 1
 
+var count = 1
+
 var character = []
+
 
 let searchInput = document.getElementById('search-input')
 let characterCards = document.getElementById('characterCards')
@@ -82,7 +85,7 @@ const impressCharactes = (character) => {
     const novaDiv = document.createElement("div")
     novaDiv.innerHTML =
       `
-                              <div id="cardPersonagem" class="card-personagem row mb-3">
+                              <div data-id="${count}" id="cardPersonagem" class="card-personagem row mb-3">
                                 <div class="col-12 col-md-6 d-flex align-items-center justify-content-center custom-h13">
                                   <section class="profile bg-color-custom-green custom-w80 d-flex rounded custom-h13">
                                     <div class="image-profile">
@@ -100,8 +103,11 @@ const impressCharactes = (character) => {
                                 </div>
                               </div>
                             `
+                            count++
+                            
     characterCards.appendChild(novaDiv)
   })
+  addEventCard()
 }
 
 const getCharacterSearch = async (input) =>{
@@ -122,6 +128,16 @@ const getCharacterSearch = async (input) =>{
 searchInput.addEventListener('input', function (event) {
   getCharacterSearch(searchInput.value.toLowerCase())
 })
+
+function addEventCard(){
+  const cardCharacter = document.querySelectorAll('.card-personagem')
+  cardCharacter.forEach(card=>{
+    card.addEventListener('click', ()=> {
+      const id = card.getAttribute('data-id')
+      console.log("clicou no card", id)
+    })
+  })
+}
 
 
 btnNext.addEventListener('click', function (event) {
@@ -167,6 +183,8 @@ btnLast.addEventListener('click', function (event) {
     btnLast.disabled = true
   }
 })
+
+
 
 getCharacter(page)
   .then(() => {
