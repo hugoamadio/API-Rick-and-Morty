@@ -23,8 +23,8 @@ main {
     width: 60vw;
 }
 
-.custom-h2 {
-    height: 2vh;
+.custom-h3 {
+    height: 3vh;
 }
 
 .custom-h65 {
@@ -45,7 +45,7 @@ main {
 
 header input::placeholder {
     color: #56CD42;
-    font-size: 7px;
+    font-size: small;
 }
 
 footer p {
@@ -105,26 +105,66 @@ footer span {
     overflow: scroll;
 }
 
-#cardPersonagem:hover{
+#cardPersonagem:hover {
     animation: hoverCard 0.5s forwards;
 }
 
-.modal-content{
+.modal-content {
     color: #43B4C9;
     background-color: #354338;
 }
 
 @keyframes hoverCard {
-    0%{
+    0% {
         scale: 1;
     }
-    100%{
+
+    100% {
         scale: 1.05;
     }
 }
 
 @media (min-width: 1500px) {
-    header{
-        height: 35vh !important;
+    header {
+        height: 35vh;
+    }
+
+    header img{
+        width: 3vw !important;
+    }
+
+    footer{
+        height: 10vh !important;
+    }
+
+    #characterCards {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    #search-input{
+        margin-top: 5vh !important;
+        
+    }
+    #search-input::placeholder{
+        font-size: xx-small;
+        
+    }
+    #title-div{
+        position: absolute;
+        top: 0;
+    }
+
+    #modal-body img {
+        width: 15vw;
+    }
+    body{
+        background-image: url(/src/img/FUNDO_3\ Desktop.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    main {
+        background-image: none;
+        height: 70vh !important;
     }
 }

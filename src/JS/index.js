@@ -69,36 +69,30 @@ const getCharacterAPI = async (page) => {
     })
 }
 
-const pageCharacters = (page, limit) => {
-  let characterPaginado = character.slice()
-  let offset = 0 //(page - 1) * limit
-  characterPaginado = characterPaginado.slice(offset, (offset + limit))
-  return characterPaginado
-}
-
 const impressCharactes = (character) => {
   character.forEach(personagem => {
     const novaDiv = document.createElement("div")
     if (window.innerWidth > 1200) {
       novaDiv.innerHTML =
         `
-                              <div data-id="${count}" data-bs-toggle="modal" data-bs-target="#exampleModal" id="cardPersonagem" class="card-personagem row mb-3">
-                                <div class="offset-4 col-4 d-flex align-items-center justify-content-center custom-h13">
+                              <div data-id="${count}" data-bs-toggle="modal" data-bs-target="#exampleModal" id="cardPersonagem" class="card-personagem mb-3 offset-3 col-6">
+                                <div class="d-flex align-items-center justify-content-center custom-h13">
                                   <section class="profile bg-color-custom-green custom-w80 d-flex rounded custom-h13">
                                     <div class="image-profile">
                                       <img class="custom-h13" src="${personagem.image}" alt="">
                                     </div>
-                                    <div class="info-profile p-2">
+                                    <div class="info-profile p-1">
                                       <h6 class="color-w m-0">${personagem.name}</h6>
-                                      <p class="font-s color-w mb-2">${characterStatus(personagem.status)} ${personagem.species}</p>
+                                      <p class="font-s color-w mb-0">${characterStatus(personagem.status)} ${personagem.species}</p>
                                       <p class="font-s mb-0 color-gray">Última localização conhecida</p>
-                                      <p class="color-w font-s mb-2">${personagem.location.name}</p>
+                                      <p class="color-w font-s mb-0">${personagem.location.name}</p>
                                       <p class="font-s m-0 color-gray">Visto a última vez em:</p>
                                       <p class="color-w font-s" id="episode-name">Episódio ${personagem.episode.length}</p>
                                     </div>
                                   </section>
                                 </div>
                               </div>
+                              
                             `
       count++
     } else {
