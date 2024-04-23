@@ -1,0 +1,71 @@
+main{
+    background-image: url(/src/img/background-image.jpg);
+    background-size: contain;
+    height: 270vh;
+}
+
+main img{
+    border-top-left-radius: 5px;
+}
+
+footer{
+    height: 35vh;
+    background-color: #105718;
+    color: #56CD42;
+}
+
+footer span{
+    color: white;
+}
+
+nav{
+    color: white;
+}
+
+section{
+    position: absolute;
+    left: 60rem;
+    top: 60rem;
+}
+
+.card-custom{
+    background-color: #354338;
+    padding: 0;
+    height: 15rem;
+    color: white;
+}
+
+.img-card-custom{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#content-top{
+    color: #56CD42;
+    padding: 3rem;
+    margin-bottom: 7rem;
+}
+
+#content-top input{
+    width: 25rem;
+}
+
+#insert-card span{
+    color: gray;
+}
+
+#two-last-card{
+    margin-left: 225px;
+}
+
+#search-input{
+    color: rgb(86, 205, 66);
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(86,205,66)" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    padding-right: 30px;
+}
+
+#search-input::placeholder{
+    color: rgb(86,205,66);
+}
